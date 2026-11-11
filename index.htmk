@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Warm Corner - Bar & Bistrot | Cosy Neighborhood Bar in Centro Storico</title>
+    <meta name="description" content="The Warm Corner è un bar e bistrot dal fascino accogliente nel cuore del centro storico. Specialità caffè, cocktail crafted, piatti gourmet e un'atmosfera dove ogni visitatore si sente a casa.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-brown: #6F4E37;
+            --secondary-cream: #F5E6D3;
+            --accent-green: #8B9A6B;
+            --text-dark: #2C1810;
+            --text-light: #6B5B47;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.15);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .sans {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--accent-green);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-brown);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-green);
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .book-table {
+            background: var(--primary-brown);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(111, 78, 55, 0.3);
+        }
+        
+        .book-table:hover {
+            background: var(--accent-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1555956841367-1df74d3ef1d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            z-index: 1;
+        }
+        \n        .hero::before {\n            content: '';\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 100%;\n            height: 100%;\n            background: linear-gradient(135deg, rgba(111, 78, 55, 0.7) 0%, rgba(139, 154, 107, 0.5) 100%);\n            z-index: 2;\n        }\n        \n        .hero-content {\n            position: relative;\n            z-index: 3;\n            text-align: center;\n            color: var(--white);\n            max-width: 800px;\n            padding: 0 2rem;\n            animation: fadeInUp 1s ease-out;\n        }\n        \n        @keyframes fadeInUp {\n            from {\n                opacity: 0;\n                transform: translateY(30px);\n            }\n            to {\n                opacity: 1;\n                transform: translateY(0);\n            }\n        }\n        \n        .hero-title {\n            font-size: clamp(2.5rem, 6vw, 4.5rem);\n            margin-bottom: 1rem;\n            font-weight: 700;\n            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);\n        }\n        \n        .hero-tagline {\n            font-size: 1.3rem;\n            margin-bottom: 2rem;\n            opacity: 0.95;\n            font-weight: 300;\n            line-height: 1.4;\n        }\n        \n        .hero-buttons {\n            display: flex;\n            gap: 1.5rem;\n            justify-content: center;\n            flex-wrap: wrap;\n        }\n        \n        .btn {\n            padding: 1rem 2rem;\n            border: none;\n            border-radius: 30px;\n            font-size: 1rem;\n            font-weight: 600;\n            cursor: pointer;\n            transition: var(--transition-smooth);\n            text-decoration: none;\n            display: inline-block;\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .btn::before {\n            content: '';\n            position: absolute;\n            top: 0;\n            left: -100%;\n            width: 100%;\n            height: 100%;\n            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);\n            transition: var(--transition-smooth);\n        }\n        \n        .btn:hover::before {\n            left: 100%;\n        }\n        \n        .btn-primary {\n            background: var(--accent-green);\n            color: var(--white);\n            box-shadow: 0 4px 15px rgba(139, 154, 107, 0.4);\n        }\n        \n        .btn-primary:hover {\n            background: #7A8B5A;\n            transform: translateY(-3px);\n            box-shadow: var(--shadow-hover);\n        }\n        \n        .btn-secondary {\n            background: rgba(255, 255, 255, 0.1);\n            color: var(--white);\n            border: 2px solid rgba(255, 255, 255, 0.3);\n            backdrop-filter: blur(5px);\n        }\n        \n        .btn-secondary:hover {\n            background: rgba(255, 255, 255, 0.2);\n            border-color: rgba(255, 255, 255, 0.5);\n            transform: translateY(-3px);\n        }\n        \n        /* About Section */\n        .section {\n            padding: 5rem 0;\n            position: relative;\n        }\n        \n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 0 2rem;\n        }\n        \n        .section-header {\n            text-align: center;\n            margin-bottom: 3rem;\n            max-width: 600px;\n            margin-left: auto;\n            margin-right: auto;\n        }\n        \n        .section-title {\n            font-size: 2.5rem;\n            margin-bottom: 1rem;\n            position: relative;\n            display: inline-block;\n        }\n        \n        .section-title::after {\n            content: '';\n            position: absolute;\n            bottom: -10px;\n            left: 50%;\n            transform: translateX(-50%);\n            width: 60px;\n            height: 3px;\n            background: var(--accent-green);\n            border-radius: 2px;\n        }\n        \n        .section-subtitle {\n            color: var(--text-light);\n            font-size: 1.1rem;\n            line-height: 1.6;\n        }\n        \n        /* About Section */\n        .about-content {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 3rem;\n            align-items: center;\n            margin-top: 3rem;\n        }\n        \n        .about-text {\n            font-size: 1.1rem;\n            line-height: 1.8;\n            color: var(--text-light);\n        }\n        \n        .about-text p {\n            margin-bottom: 1.5rem;\n        }\n        \n        .about-image {\n            position: relative;\n        }\n        \n        .about-img {\n            width: 100%;\n            height: 400px;\n            object-fit: cover;\n            border-radius: 15px;\n            box-shadow: var(--shadow-soft);\n            transition: var(--transition-smooth);\n        }\n        \n        .about-img:hover {\n            transform: scale(1.02);\n            box-shadow: var(--shadow-hover);\n        }\n        \n        /* Menu Navigation */\n        .menu-nav {\n            display: flex;\n            justify-content: center;\n            gap: 1rem;\n            margin-bottom: 3rem;\n            flex-wrap: wrap;\n            padding: 0 1rem;\n        }\n        \n        .menu-tab {\n            padding: 0.75rem 2rem;\n            background: var(--secondary-cream);\n            border: 2px solid transparent;\n            border-radius: 30px;\n            text-decoration: none;\n            color: var(--text-dark);\n            font-weight: 600;\n            transition: var(--transition-smooth);\n            cursor: pointer;\n            position: relative;\n        }\n        \n        .menu-tab:hover, .menu-tab.active {\n            background: var(--accent-green);\n            color: var(--white);\n            transform: translateY(-2px);\n            box-shadow: var(--shadow-soft);\n        }\n        \n        .menu-tab.active {\n            border-color: var(--primary-brown);\n        }\n        \n        /* Menu Grid */\n        .menu-container {\n            display: none;\n            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));\n            gap: 2rem;\n            margin-top: 2rem;\n            animation: fadeIn 0.5s ease-out;\n        }\n        \n        .menu-container.active {\n            display: grid;\n        }\n        \n        @keyframes fadeIn {\n            from { opacity: 0; }\n            to { opacity: 1; }\n        }\n        \n        .menu-item {\n            background: var(--white);\n            border-radius: 15px;\n            padding: 2rem;\n            box-shadow: var(--shadow-soft);\n            transition: var(--transition-smooth);\n            position: relative;\n            overflow: hidden;\n        }\n        \n        .menu-item::before {\n            content: '';\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 4px;\n            height: 100%;\n            background: var(--accent-green);\n            transform: scaleY(0);\n            transition: var(--transition-smooth);\n        }\n        \n        .menu-item:hover {\n            transform: translateY(-5px);\n            box-shadow: var(--shadow-hover);\n        }\n        \n        .menu-item:hover::before {\n            transform: scaleY(1);\n        }\n        \n        .menu-item-header {\n            display: flex;\n            justify-content: space-between;\n            align-items: flex-start;\n            margin-bottom: 1rem;\n            padding-bottom: 1rem;\n            border-bottom: 2px solid var(--secondary-cream);\n        }\n        \n        .menu-item-title {\n            font-size: 1.3rem;\n            margin-bottom: 0.5rem;\n        }\n        \n        .menu-item-price {\n            font-size: 1.5rem;\n            font-weight: 700;\n            color: var(--accent-green);\n            white-space: nowrap;\n            margin-left: 1rem;\n        }\n        \n        .menu-item-desc {\n            color: var(--text-light);\n            line-height: 1.6;\n            margin-bottom: 1rem;\n        }\n        \n        .menu-item-tags {\n            display: flex;\n            gap: 0.5rem;\n            flex-wrap: wrap;\n        }\n        \n        .tag {\n            background: var(--secondary-cream);\n            color: var(--primary-brown);\n            padding: 0.3rem 0.8rem;\n            border-radius: 15px;\n            font-size: 0.85rem;\n            font-weight: 500;\n        }\n        \n        /* Events Section */\n        .events-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n            gap: 2rem;\n            margin-top: 3rem;\n        }\n        \n        .event-card {\n            background: var(--white);\n            border-radius: 15px;\n            overflow: hidden;\n            box-shadow: var(--shadow-soft);\n            transition: var(--transition-smooth);\n        }\n        \n        .event-card:hover {\n            transform: translateY(-5px);\n            box-shadow: var(--shadow-hover);\n        }\n        \n        .event-image {\n            height: 200px;\n            width: 100%;\n            object-fit: cover;\n        }\n        \n        .event-content {\n            padding: 1.5rem;\n        }\n        \n        .event-date {\n            background: var(--accent-green);\n            color: var(--white);\n            padding: 0.5rem 1rem;\n            border-radius: 20px;\n            font-size: 0.9rem;\n            font-weight: 600;\n            display: inline-block;\n            margin-bottom: 1rem;\n        }\n        \n        .event-title {\n            font-size: 1.5rem;\n            margin-bottom: 0.5rem;\n        }\n        \n        .event-desc {\n            color: var(--text-light);\n            line-height: 1.6;\n            margin-bottom: 1rem;\n        }\n        \n        /* Gallery Section */\n        .gallery-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n            gap: 1.5rem;\n            margin-top: 3rem;\n        }\n        \n        .gallery-item {\n            position: relative;\n            border-radius: 15px;\n            overflow: hidden;\n            height: 250px;\n            box-shadow: var(--shadow-soft);\n            transition: var(--transition-smooth);\n        }\n        \n        .gallery-item:hover {\n            transform: scale(1.05);\n            box-shadow: var(--shadow-hover);\n        }\n        \n        .gallery-img {\n            width: 100%;\n            height: 100%;\n            object-fit: cover;\n            transition: var(--transition-smooth);\n        }\n        \n        .gallery-item:hover .gallery-img {\n            transform: scale(1.1);\n        }\n        \n        .gallery-overlay {\n            position: absolute;\n            bottom: 0;\n            left: 0;\n            width: 100%;\n            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);\n            padding: 1.5rem 1rem 0.5rem;\n            color: var(--white);\n            transform: translateY(100%);\n            transition: var(--transition-smooth);\n        }\n        \n        .gallery-item:hover .gallery-overlay {\n            transform: translateY(0);\n        }\n        \n        .gallery-title {\n            font-size: 1.2rem;\n            margin-bottom: 0.5rem;\n        }\n        \n        /* Contact Section */\n        .contact-content {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 3rem;\n            margin-top: 3rem;\n        }\n        \n        .contact-info {\n            background: var(--secondary-cream);\n            padding: 2rem;\n            border-radius: 15px;\n        }\n        \n        .contact-title {\n            font-size: 1.8rem;\n            margin-bottom: 1.5rem;\n            color: var(--primary-brown);\n        }\n        \n        .contact-item {\n            display: flex;\n            align-items: flex-start;\n            gap: 1rem;\n            margin-bottom: 1.5rem;\n        }\n        \n        .contact-icon {\n            width: 20px;\n            height: 20px;\n            background: var(--accent-green);\n            border-radius: 50%;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            color: var(--white);\n            font-size: 1rem;\n            flex-shrink: 0;\n        }\n        \n        .contact-text h4 {\n            font-size: 1.1rem;\n            margin-bottom: 0.5rem;\n            color: var(--primary-brown);\n        }\n        \n        .contact-text p {\n            color: var(--text-light);\n            line-height: 1.6;\n        }\n        \n        .map-placeholder {\n            height: 300px;\n            background: var(--secondary-cream);\n            border-radius: 15px;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            border: 2px dashed var(--accent-green);\n        }\n        \n        .booking-form {\n            background: var(--white);\n            padding: 2rem;\n            border-radius: 15px;\n            box-shadow: var(--shadow-soft);\n        }\n        \n        .form-group {\n            margin-bottom: 1.5rem;\n        }\n        \n        .form-group label {\n            display: block;\n            margin-bottom: 0.5rem;\n            font-weight: 600;\n            color: var(--primary-brown);\n        }\n        \n        .form-control {\n            width: 100%;\n            padding: 0.75rem 1rem;\n            border: 2px solid var(--secondary-cream);\n            border-radius: 10px;\n            font-size: 1rem;\n            transition: var(--transition-smooth);\n            font-family: 'Inter', sans-serif;\n        }\n        \n        .form-control:focus {\n            outline: none;\n            border-color: var(--accent-green);\n            box-shadow: 0 0 0 3px rgba(139, 154, 107, 0.1);\n        }\n        \n        .form-row {\n            display: grid;\n            grid-template-columns: 1fr 1fr;\n            gap: 1rem;\n        }\n        \n        .btn-submit {\n            background: var(--primary-brown);\n            color: var(--white);\n            padding: 1rem 2rem;\n            border: none;\n            border-radius: 10px;\n            font-size: 1.1rem;\n            font-weight: 600;\n            cursor: pointer;\n            transition: var(--transition-smooth);\n            width: 100%;\n            margin-top: 1rem;\n        }\n        \n        .btn-submit:hover {\n            background: var(--accent-green);\n            transform: translateY(-2px);\n            box-shadow: var(--shadow-hover);\n        }\n        \n        /* Footer */\n        footer {\n            background: var(--primary-brown);\n            color: var(--white);\n            padding: 3rem 0 1rem;\n            margin-top: 5rem;\n        }\n        \n        .footer-content {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n            gap: 2rem;\n            margin-bottom: 2rem;\n        }\n        \n        .footer-section h3 {\n            font-size: 1.3rem;\n            margin-bottom: 1rem;\n            color: var(--accent-green);\n        }\n        \n        .footer-section h4 {\n            font-size: 1.1rem;\n            margin-bottom: 0.5rem;\n            margin-top: 1.5rem;\n            color: var(--white);\n        }\n        \n        .footer-section p {\n            color: rgba(255, 255, 255, 0.8);\n            line-height: 1.6;\n            margin-bottom: 0.5rem;\n        }\n        \n        .footer-links {\n            list-style: none;\n            padding: 0;\n            margin: 0;\n            color: rgba(255, 255, 255, 0.8);\n        }\n        \n        .footer-links li {\n            margin-bottom: 0.5rem;\n        }\n        \n        .footer-links a {\n            color: rgba(255, 255, 255, 0.8);\n            text-decoration: none;\n            transition: var(--transition-smooth);\n        }\n        \n        .footer-links a:hover {\n            color: var(--accent-green);\n            padding-left: 5px;\n        }\n        \n        .social-links {\n            display: flex;\n            gap: 1rem;\n            margin-top: 1rem;\n        }\n        \n        .social-link {\n            width: 40px;\n            height: 40px;\n            background: rgba(255, 255, 255, 0.1);\n            border-radius: 50%;\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            color: var(--white);\n            text-decoration: none;\n            transition: var(--transition-smooth);\n        }\n        \n        .social-link:hover {\n            background: var(--accent-green);\n            transform: translateY(-3px);\n        }\n        \n        .footer-bottom {\n            border-top: 1px solid rgba(255, 255, 255, 0.1);\n            padding-top: 1rem;\n            text-align: center;\n            color: rgba(255, 255, 255, 0.7);\n            font-size: 0.9rem;\n        }\n        \n        /* Responsive Design */\n        @media (max-width: 968px) {\n            .nav-menu {\n                display: none;\n            }\n            \n            .mobile-toggle {\n                display: block;\n            }\n            \n            .about-content,\n            .contact-content {\n                grid-template-columns: 1fr;\n            }\n            \n            .hero-buttons {\n                flex-direction: column;\n                align-items: center;\n            }\n            \n            .menu-nav {\n                justify-content: center;\n            }\n        }\n        \n        @media (max-width: 768px) {\n            .menu-container {\n                grid-template-columns: 1fr;\n            }\n            \n            .events-grid,\n            .gallery-grid {\n                grid-template-columns: 1fr;\n            }\n            \n            .form-row {\n                grid-template-columns: 1fr;\n            }\n            \n            .hero-title {\n                font-size: 2.5rem;\n            }\n            \n            .section-title {\n                font-size: 2rem;\n            }\n        }\n        \n        /* Mobile Navigation */\n        .nav-menu.active {\n            display: flex;\n            position: absolute;\n            top: 100%;\n            left: 0;\n            width: 100%;\n            background: var(--white);\n            flex-direction: column;\n            padding: 2rem;\n            box-shadow: var(--shadow-hover);\n            border-radius: 0 0 15px 15px;\n        }\n        \n        /* Loading Animation */\n        .loading {\n            opacity: 0;\n            transform: translateY(20px);\n            transition: var(--transition-smooth);\n        }\n        \n        .loaded .loading {\n            opacity: 1;\n            transform: translateY(0);\n        }\n        \n        /* Scroll to top button */\n        .scroll-top {\n            position: fixed;\n            bottom: 2rem;\n            right: 2rem;\n            width: 50px;\n            height: 50px;\n            background: var(--accent-green);\n            color: var(--white);\n            border: none;\n            border-radius: 50%;\n            cursor: pointer;\n            display: none;\n            align-items: center;\n            justify-content: center;\n            font-size: 1.5rem;\n            box-shadow: var(--shadow-soft);\n            transition: var(--transition-smooth);\n            z-index: 999;\n        }\n        \n        .scroll-top:hover {\n            background: var(--primary-brown);\n            transform: translateY(-5px);\n            box-shadow: var(--shadow-hover);\n        }\n        \n        .scroll-top.show {\n            display: flex;\n        }\n    </style>\n</head>\n<body>\n    <!-- Navigation -->\n    <nav id=\"navbar\">\n        <div class=\"nav-container\">\n            <a href=\"#home\" class=\"logo\">The Warm<span>Corner</span></a>\n            \n            <div class=\"mobile-toggle\" onclick=\"toggleMenu()\">\n                &#x1F5A7;\n            </div>\n            \n            <div class=\"nav-menu\" id=\"navMenu\">\n                <a href=\"#about\" class=\"nav-link\">Il Concept</a>\n                <a href=\"#menu\" class=\"nav-link\">Menu</a>\n                <a href=\"#events\" class=\"nav-link\">Eventi Speciali</a>\n                <a href=\"#gallery\" class=\"nav-link\">Galleria</a>\n                <a href=\"#booking\" class=\"nav-link\">Prenota un Tavolo</a>\n                <a href=\"#contact\" class=\"nav-link\">Dove Siamo</a>\n                <a href=\"#booking\" class=\"book-table\">Prenota un Tavolo</a>\n            </div>\n        </div>\n    </nav>\n    \n    <!-- Hero Section -->\n    <section id=\"home\" class=\"hero\">\n        <div class=\"hero-image\"></div>\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">The Warm Corner</h1>\n            <p class=\"hero-tagline\">Dove ogni angolo racconta una storia e ogni sorso racconta un'emozione</p>\n            <div class=\"hero-buttons\">\n                <a href=\"#menu\" class=\"btn btn-primary\">Vedi il Menu</a>\n                <a href=\"#contact\" class=\"btn btn-secondary\">Dove Siamo</a>\n            </div>\n        </div>\n    </section>\n    \n    <!-- About Section -->\n    <section id=\"about\" class=\"section\">\n        <div class=\"container\">\n            <div class=\"section-header\">\n                <h2 class=\"section-title\">Il Concept</h2>\n                <p class=\"section-subtitle\">La storia che si nasconde dietro ogni drink e ogni piatto</p>\n            </div>\n            \n            <div class=\"about-content\">\n                <div class=\"about-text\">\n                    <p>Benvenuti al The Warm Corner, un rifugio urbano dove tradizione incontra innovazione. Il nostro bistrot nasce dalla passione per la caffetteria artigianale, i cocktail crafted e la cucina gourmet - tutto in un'atmosfera accogliente che trasforma ogni visita in un'esperienza memorabile.</p>\n                    \n                    <p>Il nostro nome simboleggia la filosofia che ogni luogo ha il suo angolo speciale, e il nostro angolo è dove il mondo si ferma e si gode il momento presente. Guidati da un passato da baristi esigenti e da un futuro pieno di creatività, ci impegniamo a servirvi ciò che amiamo, con dedizione e stile in ogni dettaglio.</p>\n                    \n                    <p>Da un piccolo angolo nel quartiere ad un punto di riferimento per gli intenditori, siamo diventati un luogo dove i sapori prendono vita, dove gli amici si riuniscono e dove l'eccellenza non è solo un obiettivo, ma un'abitudine quotidiana. Ogni drink racconta una storia, ogni piatto racconta un'emozione, e ogni spazio racconta una memoria in attesa di essere vissuta.</p>\n                </div>\n                \n                <div class=\"about-image\">\n                    <img src=\"https://images.unsplash.com/photo-1543362206-1d0d4a0e8b6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80\" alt=\"Interni accogliente del The Warm Corner\" class=\"about-img\">\n                </div>\n            </div>\n        </div>\n    </section>\n    \n    <!-- Menu Section -->\n    <section id=\"menu\" class=\"section\" style=\"background: var(--secondary-cream);\">\n        <div class=\"container\">\n            <div class=\"section-header\">\n                <h2 class=\"section-title\">La Nostra Selezione</h2>\n                <p class=\"section-subtitle\">Scrutiniada con cura, preparata con passione</p>\n            </div>\n            \n            <div class=\"menu-nav\">\n                <button class=\"menu-tab active\" onclick=\"showMenu('coffee')\">Caffetteria</button>\n                <button class=\"menu-tab\" onclick=\"showMenu('cocktails')\">Cocktail Craft</button>\n                <button class=\"menu-tab\" onclick=\"showMenu('food')\">Cibo Gourmet</button>\n                <button class=\"menu-tab\" onclick=\"showMenu('pastries')\">Pasticceria</button>\n            </div>\n            \n            <div id=\"coffee-menu\" class=\"menu-container active\">\n                <div class=\"menu-item\">\n                    <div class=\"menu-item-header\">\n                        <div>\n                            <h3 class=\"menu-item-title\">Espresso Eletto</h3>\n                            <p class=\"menu-item-desc\">Caffè arabica single-origin, tostato a mano e preparato con passione</p>\n                        </div>\n                        <div class=\"menu-item-price\">€3.50</div>\n                    </div>\n                    <div class=\"menu-item-tags\">\n                        <span class=\"tag\">Selezione della Casa</span>\n                        <span class=\"tag\">Fresco</span>\n                    </div>\n                </div>\n                \n                <div class=\"menu-item\">\n                    <div class=\"menu-item-header\">\n                        <div>\n                            <h3 class=\"menu-item-title\">Latte Macchiato</h3>\n                            <p class=\"menu-item-desc\">Latte cremoso con micro-schiuma, dolcemente bilanciato e guarnito con panna</p>\n                        </div>\n                        <div class=\"menu-item-price\">€5.00</div>\n                    </div>\n                    <div class=\"menu-item-tags\">\n                        <span class=\"tag\">Artigianale</span>\n                        <span class=\"tag\">Caldo</span>\n                    </div>\n                </div>\n                \n                <div class=\"menu-item\">\n                    <div class=\"menu-item-header\">\n                        <div>\n                            <h3 class=\"menu-item-title\">Affogato Caldo</h3>\n                            <p class=\"menu-item-desc\">Espresso caldo versato su palline di gelato alla vaniglia, servido con predilezione</p>\n                        </div>\n                        <div class=\"menu-item-price\">€6.50</div>\n                    </div>\n                    <div class=\"menu-item-tags\">\n                        <span class=\"tag\">Specialità</span>\n                        <span class=\"tag\">Limited</span>\n                    </div>\n                </div>\n            </div>\n            \n            <div id=\"cocktails-menu\" class=\"menu-container\">\n                <div class=\"menu-item\">\n                    <div class=\"menu-item-header\">\n                        <div>\n                            <h3 class=\"menu-item-title\">The Warm Corner Old Fashioned</h3>\n                            <p class=\"menu-item-desc\">Bourbon premium, amaro aromatico, dolce d'anguria, guarnito con scorza d'arancia e ciliegia maraschino</p>\n                        </div>\n                        <div class=\"menu-item-price\">€12.00</div>\n                    </div>\n                    <div class=\"menu-item-tags\">\n                        <span class=\"tag\">Signature</span>\n                        <span class=\"tag\">Gradisc</span>\n                    </div>\n                </div>\n                \n                <div class=\"menu-item\">\n                    <div class=\"menu-item-header\">\n                        <div>\n                            <h3 class=\"menu-item-title\">Mojito alle Erbe</h3>\n                            <p class=\"menu-item-desc\">Rum jamaicano, infuso fatto in casa alle erbe, menta fresca, lime, zucherro\n                            </p>\n                        </div>\n                        <div class=\"menu-item-price\">€10.50</div>\n                    </div>\n                    <div class=\"menu-item-tags\">\n                        <span class=\"tag\">Artigianale</span>\n                        <span class=\"tag\">Fresco</span>\n                    </div>\n                </div>\n                \n                <div class=\"menu-item\">\n                    <div class=\"menu-item-header\">\n                        <div>\n                            <h3 class=\"menu-item-title\">Negroni Aromatico</h3>\n                            <p class=\"menu-item-desc\">Gin, aperitivo rosso, vermouth, guarnito con scorza d'arancia e ginepro</p>\n                        </div>\n                        <div class=\"menu-item-price\">€11.00</div>\n                    </div>\n                    <div class=\"menu-item-tags\">\n                        <span class=\"tag\">Classico</span>\n                        <span class=\"tag\">Gradisc</span>\n                    </div>\n                </div>\n            </div>\n            \n            <div id=\"food-menu\" class=\"menu-container\">", "new_string": "<div id=\"food-menu\" class=\"menu-container\">"}}
+]
